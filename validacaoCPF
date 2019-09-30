@@ -1,0 +1,73 @@
+'''
+Created on 28 de set de 2019
+
+@author: Henrique
+'''
+
+cpf = 0
+tamcpf = 0
+i = 0
+contdig = 0
+contdig2 = 0
+x = 10  # Contador da primeira verificacao
+y = 11  # Contador da segunda verificacao
+ver1 = 0
+ver2 = 0
+
+while i < 1:
+    
+    cpf = input("Digite seu cpf:")
+    cpf = list(cpf)  # Transforma os digitos em lita
+    
+    cpf = map(int, cpf)  # Converte os intens da lista de string para inteiro
+    cpf = list(cpf)  # Converte do map para lista novamente.
+    
+    tamcpf = len(cpf)
+    
+    if tamcpf==11:
+       
+        while x > 1:
+                
+            ver1 += cpf[contdig] * x
+               
+            x -= 1
+            contdig += 1
+                    
+        while y > 1:
+                   
+            ver2 += cpf[contdig2] * y
+                        
+            y -= 1
+            contdig2 += 1
+        
+        ver1 = (ver1 * 10) % 11 
+        
+        ver2 = (ver2 * 10) % 11
+            
+        if ver1 == cpf[9] and ver2 == cpf[10]:
+            
+            print("CPF Valido")
+            i = 1
+        
+        else:
+            
+            print("CPF Invalido, tente novamente")
+           
+            contdig = 0
+            contdig2 = 0
+            x = 10  # Contador da primeira verificacao
+            y = 11  # Contador da segunda verificacao
+            ver1 = 0
+            ver2 = 0
+        
+    else:
+        
+        print("Numero de Digitos invalidos.")
+        
+        
+        contdig = 0
+        contdig2 = 0
+        x = 10  # Contador da primeira verificacao
+        y = 11  # Contador da segunda verificacao
+        ver1 = 0
+        ver2 = 0
